@@ -1,5 +1,18 @@
 package facedetection;
 
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
+import org.opencv.videoio.VideoCapture;
+
 import facedetection.ui.Histogram;
 import facedetection.ui.Utils;
 import javafx.fxml.FXML;
@@ -7,19 +20,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.videoio.VideoCapture;
-
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  * The controller associated with the only view of our application.
@@ -57,7 +57,7 @@ public class VideoController {
 
 		userRecognizer.train();
 
-		this.logo = Imgcodecs.imread("src/main/resources/logo.png");
+//		this.logo = Imgcodecs.imread("src/main/resources/logo.png");
 	}
 
 	/**
@@ -116,9 +116,9 @@ public class VideoController {
 					this.detectAndDisplay(frame);
 
 					// add a logo...
-					Rect roi = new Rect(frame.cols() - logo.cols(), frame.rows() - logo.rows(), logo.cols(), logo.rows());
-					Mat imageROI = frame.submat(roi);
-					Core.addWeighted(imageROI, 1.0, logo, 0.8, 0.0, imageROI);
+//					Rect roi = new Rect(frame.cols() - logo.cols(), frame.rows() - logo.rows(), logo.cols(), logo.rows());
+//					Mat imageROI = frame.submat(roi);
+//					Core.addWeighted(imageROI, 1.0, logo, 0.8, 0.0, imageROI);
 
 					// to grayscale
 					if (grayscale.isSelected()) {

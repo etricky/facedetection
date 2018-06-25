@@ -31,9 +31,15 @@ public class User {
 		if (allUsers == null) {
 			File[] users = usersRoot.listFiles();
 			if (users == null) {
+				System.out.println("no users");
 				return Collections.emptyList();
 			}
 			allUsers = Arrays.stream(users).map(User::new).collect(Collectors.toList());
+			System.out.println("found users: " + allUsers.size());
+			for (User user : allUsers) {
+				System.out.println("--> user: " + user.name);
+			}
+
 		}
 		return allUsers;
 	}

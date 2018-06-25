@@ -34,7 +34,7 @@ public class UserRecognizer {
 		System.out.println("Training face recognizer...");
 
 		// experience file
-		weightedStandardPixelTrainer.loadTrainedData("data/gender.txt");
+		weightedStandardPixelTrainer.loadTrainedData(System.getProperty("user.dir") +"/src/main/resources/gender.txt");
 
 
 		List<Mat> faces = new ArrayList<>();

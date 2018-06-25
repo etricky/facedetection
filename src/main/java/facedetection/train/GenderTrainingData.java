@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public class GenderTrainingData {
 
 	public void makeTrainingFile() {
-		File genderDataFolder = new File("data/gender");
+		File genderDataFolder = new File(System.getProperty("user.dir") + "/src/main/resources/gender");
 
-		File[] genderDataSubfolders = genderDataFolder.listFiles(
-			(current, name) -> new File(current, name).isDirectory());
+		File[] genderDataSubfolders = genderDataFolder
+				.listFiles((current, name) -> new File(current, name).isDirectory());
 
 		if (genderDataSubfolders == null) {
 			System.out.println("No gender data");
@@ -46,15 +46,13 @@ public class GenderTrainingData {
 		Integer[] ids = new Integer[idList.size()];
 		idList.toArray(ids);
 
-
 		WeightedStandardPixelTrainer weightedStandardPixelTrainer = new WeightedStandardPixelTrainer();
 		weightedStandardPixelTrainer.train(filePaths, ids);
 		WeightedStandardImages weightedStandardImages = weightedStandardPixelTrainer.getWeightedStandardImages();
 
-		weightedStandardImages.saveTrainedData("data/gender.txt");
+		weightedStandardImages.saveTrainedData(System.getProperty("user.dir") + "/src/main/resources/gender.txt");
 
 		System.out.println("Gender data generated.");
 	}
 
 }
-

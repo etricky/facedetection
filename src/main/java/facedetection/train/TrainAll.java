@@ -5,6 +5,7 @@ import org.opencv.core.Core;
 public class TrainAll {
 
 	public static void main(String[] args) {
+
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
 		System.out.println("---> EXTRACT FACES");
@@ -13,6 +14,7 @@ public class TrainAll {
 
 		System.out.println("---> GENDER DATA");
 
-		new GenderTrainingData().makeTrainingFile();
+		// new GenderTrainingData().makeTrainingFile();
+		System.out.println("done");
 	}
 }

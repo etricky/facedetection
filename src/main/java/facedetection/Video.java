@@ -21,9 +21,9 @@ import java.net.URL;
  * @version 2.0 (2017-03-10)
  * @since 1.0 (2013-11-20)
  */
+@SuppressWarnings("restriction")
 public class Video extends Application {
 
-	@SuppressWarnings("restriction")
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -56,7 +56,6 @@ public class Video extends Application {
 		}
 	}
 
-	@SuppressWarnings("restriction")
 	public static void main(String[] args) {
 		// load the native OpenCV library
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
